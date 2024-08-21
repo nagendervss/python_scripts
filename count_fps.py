@@ -19,6 +19,7 @@ if __name__=='__main__':
     # Read the file paths
     list_file_handler = open(args.file_list_path, 'r')
     relative_path_list = list_file_handler.readlines()
+    relative_path_list = [s.strip() for s in relative_path_list]
     list_file_handler.close()
 
     absolute_path_list = [os.path.join(args.root_dir, s) for s in relative_path_list]
