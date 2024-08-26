@@ -31,7 +31,8 @@ if __name__=='__main__':
         video_cap = cv2.VideoCapture(video_path)
         fps = video_cap.get(cv2.CAP_PROP_FPS)
         video_cap.release()
-
+        if fps==0:
+            print(f'Video with 0 fps: {video_path}')
         if fps in fps_dict.keys():
             fps_dict[fps] += 1
         else:
